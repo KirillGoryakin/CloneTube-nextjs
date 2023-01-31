@@ -1,3 +1,15 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "semi": "error",
+    "no-extra-semi": "error",
+    "quotes": ["warn", "single"],
+    "jsx-quotes": ["warn", "prefer-single"],
+    "no-console": "warn",
+    "max-len": ["warn", {
+      "code": 80,
+      "ignoreUrls": true
+    }],
+    "comma-dangle": ["error", "always-multiline"]
+  }
 }

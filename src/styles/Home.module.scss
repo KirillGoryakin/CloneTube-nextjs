@@ -1,0 +1,25 @@
+
+.videoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+@media (max-width: 1200px) {
+  .videoGrid {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .videoGrid {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .videoGrid {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,121 @@
+@import '../../styles/variables.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+
+  background: $dark700;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  
+  nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    
+    .logo {
+      display: block;
+      height: 100%;
+
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  
+    .searchBar {
+      display: flex;
+      width: 500px;
+      margin: auto;
+
+      .inputWrap {
+        display: flex;
+        flex-grow: 1;
+        padding: 1rem 2rem;
+        
+        background: $dark100;
+        border: 2px solid $dark200;
+        border-radius: 150px 0 0 150px;
+        cursor: text;
+
+        input {
+          width: 100%;
+          font-size: 2rem;
+
+          background: transparent;
+          border: none;
+          outline: none;
+        }
+      }
+  
+      .submit {
+        width: 6rem;
+
+        background: $dark100;
+        border: 2px solid $dark200;
+        border-radius: 0 150px 150px 0;
+        cursor: pointer;
+
+        transition: background 0.1s ease-in-out;
+        &:hover { background: $dark200; }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    nav {
+      padding: 0 4rem;
+
+      .searchBar {
+        margin: 0;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .header nav .searchBar{
+    width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header nav {
+    .mobileSearchButton {
+      width: 5rem;
+      height: 5rem;
+      margin-left: auto;
+      padding: 1rem;
+  
+      background: transparent;
+      border: 0;
+  
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+  
+        color: #fff;
+      }
+    }
+
+    .searchBar {
+      display: none;
+      width: 100%;
+
+      &.show {
+        display: flex;
+      }
+    }
+  }
+}

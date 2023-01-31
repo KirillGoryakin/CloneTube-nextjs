@@ -1,8 +1,7 @@
 import { motion, Variants } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TrendingVideoInfo } from '@/appTypes';
-import style from '@/styles/Home.module.scss';
+import style from '@/styles/home.module.scss';
 import { VideoCard } from '@/components/VideoCard';
 import { getOptions } from '@/utils';
 

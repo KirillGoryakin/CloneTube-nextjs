@@ -1,5 +1,5 @@
 import { ChannelInfo } from '@/appTypes';
-import style from '../style.module.scss';
+import style from '@/styles/channel.module.scss';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 

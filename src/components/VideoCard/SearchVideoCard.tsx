@@ -65,7 +65,7 @@ const SearchVideoCard: React.FC<Props> = ({ video }) => {
             className={style.channelAvatar}
             href={`/channel/${channelId}`}
           >
-            <img src={channelThumbnail.slice(-1)[0].url} alt='Avatar' />
+            <Image src={channelThumbnail.slice(-1)[0].url} alt='Avatar' />
           </Link>
           <Link
             className={style.channelTitle}

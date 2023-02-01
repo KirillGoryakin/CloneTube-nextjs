@@ -1,6 +1,6 @@
 
 # 📺 CloneTube
-👴 [Old repository](https://github.com/KirillGoryakin/CloneTube) without **NextJS**
+*👴 [Old repository](https://github.com/KirillGoryakin/CloneTube) without **NextJS***
 
 **CloneTube** basically is just a YouTube clone made with **NextJS**. No auth, no liking and commenting. Just watching. It uses [YT-API](https://rapidapi.com/ytjar/api/yt-api).
 

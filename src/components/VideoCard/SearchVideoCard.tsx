@@ -40,6 +40,8 @@ const SearchVideoCard: React.FC<Props> = ({ video }) => {
         <Image
           src={thumbnail.slice(-1)[0].url}
           alt='Thumbnail'
+          width={600}
+          height={335}
         />
 
         <div className={style.videoLength}>{lengthText}</div>
@@ -65,7 +67,12 @@ const SearchVideoCard: React.FC<Props> = ({ video }) => {
             className={style.channelAvatar}
             href={`/channel/${channelId}`}
           >
-            <Image src={channelThumbnail.slice(-1)[0].url} alt='Avatar' />
+            <Image
+              src={channelThumbnail.slice(-1)[0].url}
+              alt='Avatar'
+              width={80}
+              height={80}
+            />
           </Link>
           <Link
             className={style.channelTitle}

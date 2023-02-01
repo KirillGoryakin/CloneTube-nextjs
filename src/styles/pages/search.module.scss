@@ -1,0 +1,21 @@
+@import '../variables.scss';
+
+.search {
+
+  .results {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 4rem;
+    color: #f1f1f1;
+    border-bottom: 1px solid $dark700;
+
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .videos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

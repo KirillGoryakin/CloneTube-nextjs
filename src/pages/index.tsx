@@ -1,7 +1,7 @@
 import { motion, Variants } from 'framer-motion';
 import axios from 'axios';
 import { TrendingVideoInfo } from '@/appTypes';
-import style from '@/styles/home.module.scss';
+import style from '@/styles/pages/home.module.scss';
 import { VideoCard } from '@/components/VideoCard';
 import { getOptions } from '@/utils';
 

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import style from '@/styles/channel.module.scss';
+import style from '@/styles/pages/channel.module.scss';
 import { motion } from 'framer-motion';
 import { ChannelInfo } from '@/appTypes';
 import { getOptions } from '@/utils';
-import { TopBar } from '@/pages-components/channel/TopBar';
-import { ChannelVideos } from '@/pages-components/channel/ChannelVideos';
+import { TopBar } from '@/page-components/channel/TopBar';
+import { ChannelVideos } from '@/page-components/channel/ChannelVideos';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
@@ -19,7 +19,7 @@ const ChannelPage: React.FC<Props> = ({ channel }) => {
         className={style.banner}
         initial={{ opacity: 0, y: -200 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 0.5 }}
       >
         <Image
           src={channel?.meta.image.banner.slice(-1)[0].url}

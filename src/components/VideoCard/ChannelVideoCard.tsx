@@ -36,8 +36,8 @@ const ChannelVideoCard: React.FC<Props> = ({ video }) => {
         <Image
           src={thumbnail.slice(-1)[0].url}
           alt='Thumbnail'
-          width={280}
-          height={156}
+          width={600}
+          height={335}
         />
 
         <div className={style.videoLength}>{lengthText}</div>

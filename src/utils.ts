@@ -4,8 +4,8 @@ export const getOptions = (endpoint: string, params: object) => ({
   url: `https://yt-api.p.rapidapi.com/${endpoint}`,
   params,
   headers: {
-    'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
-    'X-RapidAPI-Host': process.env.REACT_APP_X_RAPID_API_HOST,
+    'X-RapidAPI-Key': process.env.NEXT_PUBLIC_X_RAPID_API_KEY,
+    'X-RapidAPI-Host': process.env.NEXT_PUBLIC_X_RAPID_API_HOST,
   },
 });
 

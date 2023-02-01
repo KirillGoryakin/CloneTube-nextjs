@@ -1,6 +1,6 @@
 import { ChannelVideoInfo } from '@/appTypes';
 import { VideoCard } from '@/components/VideoCard';
-import style from '@/styles/channel.module.scss';
+import style from '@/styles/pages/channel.module.scss';
 import { motion, Variants } from 'framer-motion';
 
 type Props = {

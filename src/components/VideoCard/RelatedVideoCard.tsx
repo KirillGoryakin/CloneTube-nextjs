@@ -38,6 +38,8 @@ const RelatedVideoCard: React.FC<Props> = ({ video }) => {
         <Image
           src={thumbnail.slice(-1)[0].url}
           alt='Thumbnail'
+          width={600}
+          height={335}
         />
 
         <div className={style.videoLength}>{lengthText}</div>

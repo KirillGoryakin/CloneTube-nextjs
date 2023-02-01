@@ -1,5 +1,5 @@
 import { ChannelInfo } from '@/appTypes';
-import style from '@/styles/channel.module.scss';
+import style from '@/styles/pages/channel.module.scss';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -16,7 +16,7 @@ const TopBar: React.FC<Props> = ({ channel }) => {
       className={style.topbar}
       initial={{ opacity: 0, y: -200 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1 }}
+      transition={{ delay: 0.5 }}
     >
       <div className={style.avatar}>
         <Image

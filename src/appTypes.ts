@@ -53,6 +53,12 @@ export interface RelatedVideoInfo {
   authorThumbnail: Thumbnail[];
 }
 
+export interface RelatedInfo {
+  continuation: string;
+  data: RelatedVideoInfo[];
+  msg: string;
+}
+
 export interface SearchVideoInfo {
   type: string;
   videoId: string;

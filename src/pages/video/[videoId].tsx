@@ -1,16 +1,23 @@
 import axios from 'axios';
 import style from '@/styles/pages/video.module.scss';
+import { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { ChannelInfo, RelatedVideoInfo, VideoInfo } from '@/appTypes';
+import {
+  ChannelInfo,
+  RelatedVideoInfo,
+  VideoInfo,
+  RelatedInfo,
+} from '@/appTypes';
 import { getOptions } from '@/utils';
 import { VideoBlock } from '@/page-components/video/VideoBlock';
 import { VideoCard } from '@/components/VideoCard';
 import { GetServerSideProps } from 'next';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 type Props = {
   videoId: string;
   videoInfo: VideoInfo;
-  relatedVideos: RelatedVideoInfo[];
+  relatedInfo: RelatedInfo;
   channel: ChannelInfo;
 };
 
@@ -18,9 +25,24 @@ const VideoPage: React.FC<Props> = (props) => {
   const {
     videoId,
     videoInfo,
-    relatedVideos,
+    relatedInfo,
     channel,
   } = props;
+
+  const [relatedVideos, setRelatedVideos] =
+    useState<RelatedVideoInfo[]>(relatedInfo.data);
+  const [token, setToken] = useState<string>(relatedInfo.continuation);
+
+  const fetchMore = async () => {
+    const { data } = await axios(
+      getOptions('related', {
+        id: videoId,
+        token,
+      }));
+
+    setRelatedVideos(relatedVideos.concat(data.data));
+    setToken(data.continuation);
+  };
 
   const relatedVideosVariants: Variants = {
     'initial': {},
@@ -39,17 +61,25 @@ const VideoPage: React.FC<Props> = (props) => {
         channel={channel}
       />
 
-      {relatedVideos && (
-        <motion.div
-          className={style.relatedVideos}
-          variants={relatedVideosVariants}
-          initial='initial'
-          animate='animate'
+      {relatedInfo.data && (
+        <InfiniteScroll
+          dataLength={relatedVideos.length}
+          next={fetchMore}
+          hasMore={token.length > 0}
+          loader={<></>}
+          style={{ overflow: 'hidden' }}
         >
-          {relatedVideos?.map(video => (
-            <VideoCard key={video.videoId} video={video} variant='related' />
-          ))}
-        </motion.div>
+          <motion.div
+            className={style.relatedVideos}
+            variants={relatedVideosVariants}
+            initial='initial'
+            animate='animate'
+          >
+            {relatedVideos.map(video => (
+              <VideoCard key={video.videoId} video={video} variant='related' />
+            ))}
+          </motion.div>
+        </InfiniteScroll>
       )}
     </div>
   );
@@ -62,8 +92,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { data: videoInfo } = await axios.request(
     getOptions('video', { id: videoId }));
 
-  // Fetch relatedVideos
-  const { data: relatedVideos } = await axios.request(
+  // Fetch relatedInfo
+  const { data: relatedInfo } = await axios.request(
     getOptions('related', { id: videoId }));
 
   // Fetch channel
@@ -74,7 +104,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     props: {
       videoId,
       videoInfo,
-      relatedVideos: relatedVideos.data,
+      relatedInfo,
       channel,
     },
   };

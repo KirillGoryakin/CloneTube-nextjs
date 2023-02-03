@@ -19,7 +19,7 @@
 - ESLint
 
 # 👓 Live Demo
-https://clone-tube-kirillgoryakin.vercel.app/
+https://clone-tube.vercel.app/
 # Development
 ### Instalation:
 Clone repository:

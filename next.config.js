@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
+    unoptimized: process.env.NEXT_PUBLIC_UNOPTIMIZED === 'true' ? true : false,
     remotePatterns: [
       {
         protocol: 'https',

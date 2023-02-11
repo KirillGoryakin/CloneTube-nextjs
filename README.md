@@ -20,7 +20,7 @@
 
 # 👓 Live Demo
 https://clone-tube.vercel.app/
-# Development
+# 💻 Development
 ### Instalation:
 Clone repository:
 ```
@@ -46,4 +46,14 @@ npm run build
 ### Start production server:
 ```
 npm run start
+```
+
+# 🐳 Docker
+### Build image
+```
+docker build . -t clonetube
+```
+### Run container
+```
+docker run -d --rm -p 3000:3000 --name clonetube clonetube
 ```
